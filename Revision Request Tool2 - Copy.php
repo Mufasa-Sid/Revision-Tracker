@@ -65,7 +65,7 @@ if(empty($_POST["SESAID"]))
  }
  if(!isset($_POST["ReasonList"]))
  {
-  $error .= '<p><label class="text-danger">Please Select a Reason</label></p>';
+  $error .= '<p><label class="text-danger">Please select a reason</label></p>';
  }
 
  if(empty($_POST["Description"]))
@@ -97,7 +97,7 @@ if(!isset($_POST["checkbox"]))
    'Line'  => $Line,
    'ExpectedDate' => $ExpectedDate,
    'Description' => $Description,
-   'ReasonList'  => $ReasonList
+   'ReasonList'  => $ReasonList   
   );
   fputcsv($file_open, $form_data);
   $error = '<label class="text-success">Thank you!</label>';
@@ -145,13 +145,13 @@ if(!isset($_POST["checkbox"]))
       <input type="text" name="Line" class="form-control" placeholder="Enter Line Number" value="<?php echo $Line; ?>" />
      </div>
      <div class="form-group">
-      <label>Expected Date</label>
+      <label>Expected Date (mm/dd/yyyy)</label>
       <input type="text" name="ExpectedDate" class="form-control" placeholder="Enter Expected Date" value="<?php echo $ExpectedDate; ?>" />
      </div>
      <div class="form-group">
       <label>Select Reason for Request</label>
-             <select id = "ReasonList">
-               <name="ReasonList" class="form-control" value="<?php echo $ReasonList; ?>" />
+             
+               <select id = "ReasonList" name="ReasonList" class="form-control" value="<?php echo $ReasonList; ?>" />
                </n>
                <option value = "">Select...</option>
                <option value = "1">Original Engineer has left the company</option>
