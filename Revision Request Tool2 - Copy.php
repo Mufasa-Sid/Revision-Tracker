@@ -8,8 +8,8 @@ $SESAID = '';
 $Q2C = '';
 $Line = '';
 $ExpectedDate = '';
-$Description = '';
 $ReasonList = '';
+$Description = '';
 $checkbox = '';
 
 function clean_text($string)
@@ -67,6 +67,10 @@ if(empty($_POST["SESAID"]))
  {
   $error .= '<p><label class="text-danger">Please select a reason</label></p>';
  }
+else
+ {
+  $ReasonList = clean_text($_POST["ReasonList"]);
+ }
 
  if(empty($_POST["Description"]))
  {
@@ -96,8 +100,8 @@ if(!isset($_POST["checkbox"]))
    'Q2C'  => $Q2C,
    'Line'  => $Line,
    'ExpectedDate' => $ExpectedDate,
-   'Description' => $Description,
-   'ReasonList'  => $ReasonList   
+   'ReasonList'  => $ReasonList,  
+   'Description' => $Description
   );
   fputcsv($file_open, $form_data);
   $error = '<label class="text-success">Thank you!</label>';
@@ -106,9 +110,9 @@ if(!isset($_POST["checkbox"]))
   $Q2C = '';
   $Line = '';
   $ExpectedDate = '';
-  $Description = '';
   $ReasonList = '';
- }
+  $Description = '';
+}
 }
 
 ?>
@@ -154,10 +158,10 @@ if(!isset($_POST["checkbox"]))
                <select id = "ReasonList" name="ReasonList" class="form-control" value="<?php echo $ReasonList; ?>" />
                </n>
                <option value = "">Select...</option>
-               <option value = "1">Original Engineer has left the company</option>
-               <option value = "2">Actively involved in field work on customer site</option>
-               <option value = "3">No capacity due to customer mandated deadlines</option>
-               <option value = "4">Exception request by manager</option>
+               <option value = "Original Engineer has left the company">Original Engineer has left the company</option>
+               <option value = "Actively involved in field work on customer site">Actively involved in field work on customer site</option>
+               <option value = "No capacity due to customer mandated deadlines">No capacity due to customer mandated deadlines</option>
+               <option value = "Exception request by manager">Exception request by manager</option>
              </select>
               </div>
       <label>Describe scope of revision and any additional information required to complete</label>
