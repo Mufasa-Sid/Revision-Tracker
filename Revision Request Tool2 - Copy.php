@@ -150,7 +150,7 @@ if(!isset($_POST["checkbox"]))
      </div>
      <div class="form-group">
       <label>Select Reason for Request</label>
-             <select id = "ResonList">
+             <select id = "ReasonList">
                <name="ReasonList" class="form-control" value="<?php echo $ReasonList; ?>" />
                </n>
                <option value = "">Select...</option>
